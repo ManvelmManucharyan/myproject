@@ -8,7 +8,7 @@ module.exports = {
           'email', // new field name
           {
             type: Sequelize.STRING,
-            allowNull: true,
+            allowNull: false,
               after: "age"
           },
       ),
