@@ -22,6 +22,11 @@ const start = async ()=>{
             })
             res.status(201).send('Successfully created');
         })
+        app.get('/', async (req, res)=>{
+            const users = await employee.findAll();
+            console.log(users.map(el=> el.getDataValue('name')))
+            res.send('')
+        })
         console.log('Database successfully connected')
     }catch (error) {
         console.log('Unable connect to database')
