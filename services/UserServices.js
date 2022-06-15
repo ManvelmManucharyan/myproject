@@ -5,6 +5,10 @@ class UserServices {
         return employee.findAll()
     }
 
+    static async getAllUsersById(id){
+        return employee.findOne( {where: {id}});
+    }
+
     static async createUser(name,age,email){
         await employee.create({name,age,email})
     }

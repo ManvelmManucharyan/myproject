@@ -7,6 +7,10 @@ class UserController {
         res.status(200).send(users)
     }
 
+    static async getAllUsersById (req,res){
+        const user = await UserServices.getAllUsersById(req.params.id);
+        res.status(200).send(user)
+    }
     static async createUser  (req, res){
         const {name, age, email} = req.body;
         await UserServices.createUser(name,age,email)
