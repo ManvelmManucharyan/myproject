@@ -15,6 +15,7 @@
             <name qname="@" />
             <name qname="it_company" />
             <name qname="it_company_db" />
+            <name qname="test_db" />
           </node>
         </introspection-scope>
       </schema-mapping>
