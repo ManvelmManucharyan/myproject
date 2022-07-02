@@ -11,11 +11,22 @@ class UserController {
         const user = await UserServices.getAllUsersById(req.params.id);
         res.status(200).send(user)
     }
-    static async createUser  (req, res){
-        const {name, age, email} = req.body;
-        await UserServices.createUser(name,age,email)
-        res.status(201).send('User Successfully created')
-   }
+
+    static async getUserByEmail(req,res){
+        try{
+            const {email} = req.params
+            const user = await UserServices.getUserByEmail(email)
+            res.status(200).send(user)
+        } catch (e){
+            res.status(500).send(e.message)
+        }
+    }
+
+   //  static async createUser  (req, res){
+   //      const {name, age, email} = req.body;
+   //      await UserServices.createUser(name,age,email)
+   //      res.status(201).send('User Successfully created')
+   // }
 
    static async deleteUser (req, res){
         await UserServices.deleteUser(req.params.id)

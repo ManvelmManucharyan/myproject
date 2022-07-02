@@ -9,8 +9,8 @@ class UserServices {
         return employee.findOne( {where: {id}});
     }
 
-    static async createUser(name,age,email){
-        await employee.create({name,age,email})
+    static async createUser(name,age,email, password){
+        await employee.create({name,age,email, password})
     }
 
     static async deleteUser (id){
