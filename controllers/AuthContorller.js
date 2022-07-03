@@ -5,7 +5,7 @@ const HTTP_STATUS_CODE = require('../lib/constants/http-status-codes')
 
 
 class AuthController {
-    static async register(req,res, next){
+    static async register(req, res, next){
         try {
             const errors = validationResult(req)
 
@@ -24,15 +24,15 @@ class AuthController {
         }
     }
 
-    static async login(req,res,next){
+    static async login(req, res, next){
         try {
             const {email,password} = req.body
-            const userData = await AuthController.login(email,password)
+            const userData = await AuthService.login(email,password)
             return res.status(HTTP_STATUS_CODE.OK).json({
                 ...userData
             })
         } catch (e){
-            next(e)
+            next(e);
         }
     }
 }

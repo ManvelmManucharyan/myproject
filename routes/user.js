@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const UserController = require('../controllers/UserController')
+const UserController = require('../controllers/UserController');
+const authorize = require('../middleware/authorize')
 
-router.get('/', UserController.getAllUsers);
+router.get('/',authorize, UserController.getAllUsers);
 // router.get('/:id', UserController.getAllUsersById);
 router.get('/:email', UserController.getUserByEmail);
 // router.post('/', UserController.createUser);

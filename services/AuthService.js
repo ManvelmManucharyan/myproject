@@ -27,7 +27,7 @@ class AuthService {
             throw ApiError.BadRequest('User not found')
         }
         const userDto = new UserDto(user);
-        const token = jwt.generateToken(...{userDto})
+        const token = jwt.generateToken({...userDto})
         return {
             ...token,
             user: userDto
