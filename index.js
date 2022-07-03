@@ -2,13 +2,15 @@ const sequelize = require('./db/connection');
 const bodyParser = require('body-parser')
 const express = require('express');
 const routes = require('./routes/index');
-const employee = require('./models/employee')
+const errorMiddleware = require('./middleware/error-middleware')
 
 const app = express();
 const PORT = 3000
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(errorMiddleware);
 app.use('/api/v1/', routes);
+
 
 const start = async ()=>{
     try{
